@@ -1,20 +1,15 @@
-import React, { useState } from 'react'
-const id = import.meta.env.VITE_APP_ID
-const key = import.meta.env.VITE_APP_KEY
+import React, { useState } from 'react';
+const id = import.meta.env.VITE_APP_ID;
+const key = import.meta.env.VITE_APP_KEY;
 
-const Form = ({parentCallback, inputCallback}) => {
-  const [data, setData] = useState('')
- 
+const Form = ({parentCallback}) => {
+  const [data, setData] = useState('');
 
   const handleChange = event => {
     setData(event.target.value.split(/\r?\n/))
-  }
+  };
 
- 
-  console.log(data)
- 
-
-
+  console.log(data);
 
   const handleSubmit = (event) => {
     event.preventDefault(); 
@@ -22,22 +17,22 @@ const Form = ({parentCallback, inputCallback}) => {
 
     const headers = {
       "Content-Type": "application/json;charset=UTF-8", 
-      "Access-Control-Allow-Origin": "*"
+      "Access-Control-Allow-Origin": "*",
+      "Vary": "Origin"
     }
     const payload = {
     "title": "string",
     "ingr": data
-    
-  }
+  };
     console.log(payload);
 
-    fetch(url, {
+  fetch(url, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify(payload)
-    }).then((res) => console.log(res))
+    }).then((res) => res.json()).then((data) => console.log(data))
     
-  }
+  };
 
   
   return (
