@@ -1,0 +1,21 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+form button {
+  margin-top: 2.5%;
+  background: red;
+  border: none;
+  line-height: 2;
+  color: white;
+  font-size: 2rem;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+form button:hover {
+  cursor: pointer;
+  background-color: yellow;
+  color: black;
+}/*# sourceMappingURL=App.css.map */
